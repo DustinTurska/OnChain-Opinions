@@ -1,8 +1,6 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-const ADMIN_ADDRESS = '0x829d9E61EFb24636Ec631446859CF5c5D210f919';
-
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   
