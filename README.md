@@ -1,5 +1,8 @@
 # OnChain Opinions - thirdweb Engine Demo
 
+![Onchain Opinions Demo](/public/Screenshot%202024-09-28%20at%2012.45.35 PM.png)
+![Onchain Opinions Demo](/public/Screenshot%202024-09-28%20at%2012.46.40 PM.png)
+
 This demo uses Next.js 14 (app directory) and NextUI (v2).
 
 ## Technologies Used
@@ -36,7 +39,7 @@ git clone https://github.com/DustinTurska/OnChain-Opinions.git
 
 ### Install dependencies
 
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
+You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `yarn`:
 
 ```bash
 yarn
