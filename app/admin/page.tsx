@@ -4,6 +4,7 @@ import { useActiveAccount } from "thirdweb/react";
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Card, CardBody, Spinner } from "@nextui-org/react";
+import { kv } from '@vercel/kv';
 
 const ADMIN_ADDRESS = '0x829d9E61EFb24636Ec631446859CF5c5D210f919';
 
