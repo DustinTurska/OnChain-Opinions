@@ -34,7 +34,7 @@ export default function SurveyPage() {
     setError(null);
     try {
       if (account) {
-        // Log survey response
+        // Removed for live demo purposes
         const surveyPayload = { address: account.address, answer };
         const surveyResponse = await fetch("/api/log-survey", {
           method: "POST",
@@ -43,7 +43,7 @@ export default function SurveyPage() {
         });
 
         if (!surveyResponse.ok) {
-          throw new Error(`HTTP error! status: ${surveyResponse.status}`);
+          throw new Error(`error! please use vercel kv or similar for survey responses for PROD`);
         }
 
         // Send transaction
@@ -90,52 +90,54 @@ export default function SurveyPage() {
   }
 
   return (
-      <div className="text-center">
-        <Spacer y={2} />
-        {!surveyCompleted ? (
-          <div className="flex flex-col items-center">
-            {isLoading ? (
-              <>
-                <Spinner size="lg" />
-                <p className="mt-4">Processing your submission...</p>
-              </>
-            ) : (
-              <Survey
-                question="What's your favorite blockchain?"
-                options={["Ethereum", "Solana", "Cardano", "Polkadot"]}
-                onSubmit={handleSurveySubmit}
-                isLoading={isLoading}
-              />
-            )}
-          </div>
-        ) : (
-          <>
-            <h3 className="text-2xl font-semibold">
-              Thank you for your opinion!
-            </h3>
-            <br />
-            <h3 className="text-2xl font-semibold">You have been rewarded: 0.005 ETH</h3>
-            <br />
-            {transactionHash && (
-              <p>
-                Transaction Hash:
-                <a
-                  href={`https://holesky.beaconcha.in/tx/${transactionHash}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-500 hover:underline"
-                >
-                  {transactionHash.substring(0, 10)}...
-                  {transactionHash.substring(transactionHash.length - 10)}
-                </a>
-              </p>
-            )}
-            <br />
-            <Spacer y={2} />
-            <Button onClick={handleReset}>Take Another Survey</Button>
-          </>
-        )}
-        {error && <div className="text-red-500 mt-4">Error: {error}</div>}
-      </div>
+    <div className="text-center">
+      <Spacer y={2} />
+      {!surveyCompleted ? (
+        <div className="flex flex-col items-center">
+          {isLoading ? (
+            <>
+              <Spinner size="lg" />
+              <p className="mt-4">Processing your submission...</p>
+            </>
+          ) : (
+            <Survey
+              question="What's your favorite blockchain?"
+              options={["Ethereum", "Solana", "Cardano", "Polkadot"]}
+              onSubmit={handleSurveySubmit}
+              isLoading={isLoading}
+            />
+          )}
+        </div>
+      ) : (
+        <>
+          <h3 className="text-2xl font-semibold">
+            Thank you for your opinion!
+          </h3>
+          <br />
+          <h3 className="text-2xl font-semibold">
+            You have been rewarded: 0.005 ETH
+          </h3>
+          <br />
+          {transactionHash && (
+            <p>
+              Transaction Hash:
+              <a
+                href={`https://holesky.beaconcha.in/tx/${transactionHash}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
+              >
+                {transactionHash.substring(0, 10)}...
+                {transactionHash.substring(transactionHash.length - 10)}
+              </a>
+            </p>
+          )}
+          <br />
+          <Spacer y={2} />
+          <Button onClick={handleReset}>Take Another Survey</Button>
+        </>
+      )}
+      {error && <div className="text-red-500 mt-4">Error: {error}</div>}
+    </div>
   );
 }
