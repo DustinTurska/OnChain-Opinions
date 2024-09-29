@@ -43,7 +43,7 @@ export default function SurveyPage() {
         });
 
         if (!surveyResponse.ok) {
-          throw new Error(`error! please use vercel kv or similar for survey responses for PROD`);
+          throw new Error(`Please use vercel kv or similar for survey responses for PROD`);
         }
 
         // Send transaction
