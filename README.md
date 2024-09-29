@@ -37,6 +37,17 @@ Simply clone the repo
 git clone https://github.com/DustinTurska/OnChain-Opinions.git
 ```
 
+### Set up environment variables
+
+Create `.env.local` at the root of your project:
+
+```bash
+ACCESS_TOKEN="your-thirdweb-engine-access-token"
+BACKEND_WALLET="your-engine-backend-wallet"
+NEXT_PUBLIC_TEMPLATE_CLIENT_ID="your-thirdweb-client-id"
+ADMIN_ADDRESS="your-admin-wallet-address"
+```
+
 ### Install dependencies
 
 You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `yarn`:
@@ -49,17 +60,6 @@ yarn
 
 ```bash
 yarn dev
-```
-
-### Set up environment variables
-
-Create `.env.local` at the root of your project:
-
-```bash
-ACCESS_TOKEN="your-thirdweb-engine-access-token"
-BACKEND_WALLET="your-engine-backend-wallet"
-NEXT_PUBLIC_TEMPLATE_CLIENT_ID="your-thirdweb-client-id"
-ADMIN_ADDRESS="your-admin-wallet-address"
 ```
 
 You can get started with thirdweb [here](https://thirdweb.com/dashboard)
